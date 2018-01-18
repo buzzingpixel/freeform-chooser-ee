@@ -1,1 +1,45 @@
-hello world
+Low Vars:<br>
+
+{if '{exp:low_variables:single var="test_var"}'}
+    form: {test_var}: {exp:freeform_next:render form='{exp:low_variables:single var="test_var" parse="inward"}' parse='inward'}
+{/if}
+
+<br><br>
+
+{exp:channel:entries limit="1"}
+    Field:<br>
+    {if freeform_chooser_test}
+        form: {freeform_chooser_test}: {exp:freeform_next:render form="{freeform_chooser_test}"}
+    {/if}
+
+    <br><br>
+
+    Grid:<br>
+    {grid_test}
+        {if grid_test:freeform_chooser_test}
+            form: {grid_test:freeform_chooser_test}: {exp:freeform_next:render form="{grid_test:freeform_chooser_test}"}
+        {/if}
+    {/grid_test}
+
+    <br><br>
+
+    Fluid:<br>
+    {test_fluid}
+        {test_fluid:freeform_chooser_test}
+            {if content}
+                form: {content}: {exp:freeform_next:render form="{content}"}
+            {/if}
+        {/test_fluid:freeform_chooser_test}
+    {/test_fluid}
+
+    <br><br>
+
+    Blocks:<br>
+    {test_blocks}
+        {test_block}
+            {if test_chooser}
+                form: {test_chooser}: {exp:freeform_next:render form="{test_chooser}"}
+            {/if}
+        {/test_block}
+    {/test_blocks}
+{/exp:channel:entries}
