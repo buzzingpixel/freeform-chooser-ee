@@ -9,6 +9,9 @@ libraries/ExpressionEngine/system/user/cache/*
 libraries/ExpressionEngine/system/user/config/license.key
 libraries/ExpressionEngine/themes/user/freeform_next/*
 libraries/ExpressionEngine/system/user/addons/freeform_next/*
+libraries/ExpressionEngine/themes/user/bloqs/*
+libraries/ExpressionEngine/system/user/addons/bloqs/*
+libraries/ExpressionEngine/system/user/addons/low_variables/*
 
 
 

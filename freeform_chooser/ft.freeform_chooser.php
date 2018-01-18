@@ -22,6 +22,37 @@ class Freeform_chooser_ft extends EE_Fieldtype
     );
 
     /**
+     * Freeform_chooser_ft constructor
+     */
+    public function __construct()
+    {
+        parent::__construct();
+
+        /** @var \EE_Session $session */
+        $session = ee()->session;
+
+        $assetsSet = $session->cache('freeformChooser', 'cpAssetsSet');
+
+        $isCp = defined('REQ') && REQ === 'CP';
+
+        if (! $isCp || $assetsSet) {
+            return;
+        }
+
+        $jsPath = PATH_THIRD . 'freeform_chooser/resources/script.js';
+        $jsContents = file_get_contents($jsPath);
+
+        $jsTag = "<script type=\"text/javascript\">{$jsContents}</script>";
+
+        /** @var \Cp $cp */
+        $cp = ee()->cp;
+
+        $cp->add_to_foot($jsTag);
+
+        $session->set_cache('freeformChooser', 'cpAssetsSet', true);
+    }
+
+    /**
      * Specifies compatibility
      * @param string $name
      * @return bool
