@@ -71,7 +71,7 @@ class Freeform_chooser_ft extends EE_Fieldtype
     }
 
     /**
-     * Display field
+     * Displays the field
      * @param string $data
      * @return string
      */
@@ -105,5 +105,15 @@ class Freeform_chooser_ft extends EE_Fieldtype
             'choices' => $choices,
             'value' => $value,
         ]);
+    }
+
+    /**
+     * Displays the field in Low Variables
+     * @param $data
+     * @return string
+     */
+    public function var_display_field($data)
+    {
+        return $this->display_field($data);
     }
 }
