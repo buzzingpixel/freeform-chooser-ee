@@ -6,6 +6,13 @@
  * @license http://www.apache.org/licenses/LICENSE-2.0
  */
 
+use EllisLab\ExpressionEngine\Service\View\View;
+use EllisLab\ExpressionEngine\Service\View\ViewFactory;
+use Solspace\Addons\FreeformNext\Repositories\FormRepository;
+
+/**
+ * Class Freeform_chooser_ft
+ */
 class Freeform_chooser_ft extends EE_Fieldtype
 {
     /** @var array $info */
@@ -34,11 +41,38 @@ class Freeform_chooser_ft extends EE_Fieldtype
 
     /**
      * Display field
-     * @param mixed $data
+     * @param string $data
      * @return string
      */
     public function display_field($data)
     {
-        return 'TODO: Display Field';
+        /** @var ViewFactory $viewFactory */
+        $viewFactory = ee('View');
+
+        /** @var View $view */
+        $view = $viewFactory->make('ee:_shared/form/fields/dropdown');
+
+        $choices = [
+            '' => '--',
+        ];
+
+        $freeform = ee('Addon')->get('freeform_next');
+
+        if ($freeform && $freeform->isInstalled()) {
+            $formRepository = FormRepository::getInstance();
+            $forms = $formRepository->getAllForms();
+            foreach ($forms as $form) {
+                $choices[$form->handle] = $form->name;
+            }
+        }
+
+        $value = is_string($data) ? $data : '';
+
+        return $view->render([
+            'field_name' => $this->field_name,
+            'empty_text' => '--',
+            'choices' => $choices,
+            'value' => $value,
+        ]);
     }
 }
