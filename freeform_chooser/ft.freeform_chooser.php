@@ -116,4 +116,20 @@ class Freeform_chooser_ft extends EE_Fieldtype
     {
         return $this->display_field($data);
     }
+
+    /**
+     * Saves the data
+     * @param $data
+     * @return string
+     */
+    public function save($data)
+    {
+        $int = (int) $data;
+
+        if (is_numeric($data) && $int === 0) {
+            return '';
+        }
+
+        return parent::save($data);
+    }
 }
