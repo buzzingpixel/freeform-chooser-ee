@@ -17,8 +17,8 @@ class Freeform_chooser_ft extends EE_Fieldtype
 {
     /** @var array $info */
     public $info = array(
-        'name' => FIELD_LIMITS_NAME,
-        'version' => FIELD_LIMITS_VER
+        'name' => FREEFORM_CHOOSER_NAME,
+        'version' => FREEFORM_CHOOSER_VER
     );
 
     /**
