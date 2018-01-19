@@ -1,7 +1,7 @@
 {
     "name": "buzzingpixel/freeform-chooser-ee",
     "version": "1.0.0",
-    "description": "",
+    "description": "Freeform (Next) form chooser fieldtype compatible with ALL THE THINGS (Channel field, Fluid, Bloqs, Low Variables).",
     "type": "ee-add-on",
     "authors": [
         {
