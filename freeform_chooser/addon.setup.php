@@ -7,7 +7,7 @@
  */
 
 defined('FREEFORM_CHOOSER_NAME') || define('FREEFORM_CHOOSER_NAME', 'Freeform Chooser');
-defined('FREEFORM_CHOOSER_VER') || define('FREEFORM_CHOOSER_VER', '1.0.0');
+defined('FREEFORM_CHOOSER_VER') || define('FREEFORM_CHOOSER_VER', '1.0.1');
 
 return array(
     'author' => 'TJ Draper',
